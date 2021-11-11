@@ -56,21 +56,21 @@ void UserListNode::SetNext(UserListNode* node)
 
 AccountBSTNode* UserListNode::InsertAccount(AccountBSTNode* node)
 {
-	if (this->pHead == nullptr) //노드가 가리키는 bst노드가 없다면
+	if (this->pHead == nullptr) //If there's no bst node that the node points to,
 	{
-		this->pHead = node; //인자로 받은 bst노드를 list노드의 헤드로 저장한다.
-		return node; //설정된 bst노드를 반환
+		this->pHead = node; //The bst node received as a factor is stored as the head of the list node.
+		return node; //Returns the set bst node.
 	}
-	else//list노드가 가리키는 bst노드가 있다면
+	else//If there's a bst node that the list node points to,
 	{
-		AccountBSTNode* ptr = this->pHead; //bst노드를 담을 객체 선언
-		AccountBSTNode* tmp = ptr; //ptr의 부모노드 역할을 할 객체 선언
-		while (ptr->GetNext() != nullptr) //ptr의 다음 노드가 비어있을 때 까지 반복
+		AccountBSTNode* ptr = this->pHead; //Declare an object to hold the bst node.
+		AccountBSTNode* tmp = ptr; //Declaration of an object to act as a parent node of ptr.
+		while (ptr->GetNext() != nullptr) //Repeat until the next node of ptr is empty.
 		{
-			tmp = ptr; //부모노드로 설정하고
-			ptr = ptr->GetNext(); //다음 노드로 이동
+			tmp = ptr; //I set it as my parent's node.
+			ptr = ptr->GetNext(); //Let's move on to the next node.
 		}
-		tmp->SetNext(node); //비어있는 노드에 인자로 받은 노드를 넣어준다.
+		tmp->SetNext(node); //Insert the node received as a factor into the empty node.
 	}
 	return node;
 }
@@ -84,16 +84,16 @@ void UserListNode::Delete_Account(string id)
 {
 	AccountBSTNode* ptr = this->pHead;
 	AccountBSTNode* tmp ;
-	if (ptr->GetNext() == nullptr) // 찾고있는 id가 첫번째일경우
-		this->pHead = nullptr; //연결을 끊어준다.
-	else //첫번째가 아닐경우
+	if (ptr->GetNext() == nullptr) // If the ID you're looking for is the first one,
+		this->pHead = nullptr; //Disconnect it.
+	else //If it's not the first time,
 	{
-		tmp = ptr; //다음노드로 넘어간다.
-		ptr = ptr->GetNext(); //다음노드로 넘어간다.
-		if (ptr->GetId() == id) //찾고있는 id가 두번째노드인 경우
+		tmp = ptr; //I'm moving on to the next node.
+		ptr = ptr->GetNext(); //I'm moving on to the next node.
+		if (ptr->GetId() == id) //If the ID you're looking for is the second node,
 		{
-			tmp->SetNext(ptr->GetNext());//부모노드와 자식노드를 연결해준다.
+			tmp->SetNext(ptr->GetNext());//It connects the parent node and the child node.
 		}
-		ptr->SetNext(nullptr); //찾고있는 id가 3번째노드인경우 두번째노드에서 next를 null로 지정해 끊어준다.
+		ptr->SetNext(nullptr); //If the ID you are looking for is the third node, specify the next node as null and break it at the second node.
 	}
 }

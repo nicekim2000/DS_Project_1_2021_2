@@ -21,11 +21,11 @@ public:
 	int GetAge();
 	int GetAccNum() {return AccNum;}
 	UserListNode* GetNext();
-	AccountBSTNode* GetHead();//추가구현
+	AccountBSTNode* GetHead();//Additional implementation.
 	
 	void SetName(string name);
 	void SetAge(int age);
-	void SetAccNum(int accnum);//accnum을 변경하기 위해 추가 함수 선언
+	void SetAccNum(int accnum);//Declare additional functions to change accnum.
 	void SetNext(UserListNode* node);
 	
 	AccountBSTNode* InsertAccount(AccountBSTNode* node);

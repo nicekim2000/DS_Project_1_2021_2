@@ -16,9 +16,9 @@ public:
 
 	UserListNode* GetRoot();
 	AccountBSTNode* Insert(AccountQueueNode* node);
-	bool Search(string name);//찾은 값의 주소를 넘겨줘 그 노드의 값들ㅇ르 쉽게 얻기위해
-	bool SearchPrint(string name);//명령어 Search전용 함수
-	bool Delete_Account(string name, string id); //id인자제거
-	bool Print_L();//실패할시 false를 반환하기 위해 bool형으로 바꿔주었다. 전체를 출력할땐 인자가 필요 없어서 없앴다.
+	bool Search(string name);//Hand over the address of the value you found to make it easier to obtain the values of the node.
+	bool SearchPrint(string name);//Command Search Exclusive Function
+	bool Delete_Account(string name, string id); 
+	bool Print_L();//In the event of failure, it was changed to a bool type to return false. When printing out the whole, there was no need for a factor, so it was removed.
 	
 };

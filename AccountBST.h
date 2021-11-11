@@ -10,7 +10,7 @@ class AccountBST
 {
 private:
 	AccountBSTNode* Root;
-	AccountBSTNode* SearchNode;//검색후 일치하는 노드를 저장하는 노드 추가선언
+	AccountBSTNode* SearchNode;//Declaration to add nodes that store matching nodes after searching.
 
 public:
 	AccountBST();
@@ -20,12 +20,12 @@ public:
 	bool Insert(AccountBSTNode* node);
 	bool Search_Id(string id);
 
-	bool SearchPrint(string id); //추가구현
+	bool SearchPrint(string id); //Additional implementation
 
 	bool Delete(string id);
 	void Print_PRE(AccountBSTNode* node);
 	void Print_IN(AccountBSTNode* node);
 	void Print_POST(AccountBSTNode* node);
 	void Print_LEVEL();
-	AccountBSTNode* SearchGet(); //delete시 userlist에 Name을 넘기기위해 추가선언
+	AccountBSTNode* SearchGet(); //Additional declaration to hand over the name to the user list at the time of deletion
 };

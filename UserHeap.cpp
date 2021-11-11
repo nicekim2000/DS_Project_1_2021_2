@@ -22,8 +22,7 @@ bool UserHeap::Insert(int agegroup)
     else
     {
         int count = 0; //Variables to check if there are people of the same age group.
-        int hsize = Heap.size();
-        for (int i = 1; i < hsize; i++) //Explore Heap to find out if there is a same age group.
+        for (int i = 1; i < Heap.size(); i++) //Explore Heap to find out if there is a same age group.
         {
             if (agegroup == Heap[i]->GetAgeGroup()) //If we're in the same age group,
             {
@@ -39,7 +38,7 @@ bool UserHeap::Insert(int agegroup)
             newnode->SetNumUser(newnode->GetNumUser() + 1); //Increase the number of people by 1.
             Heap.push_back(newnode); //Add it at the end of HEAP.
         }
-        int child = Heap.size() - 1; //방금 삽입한 node를 나타내는 번호
+        int child = Heap.size() - 1; //The number that represents the node you just inserted.
         int parent = child / 2;// Parents in node.
         while (Heap[child]->GetNumUser() > Heap[parent]->GetNumUser() && child!=1) //Compared to parents and themselves, they continue to swap and climb up until their parents are taller than or equal to themselves.
         {
@@ -59,8 +58,7 @@ void UserHeap::Print()
     flog.open("log.txt", ios::app); //Open the log.txt file.
     flog << "======== PRINT ========" << endl;
     flog << "Heap" << endl;
-    int hsize = Heap.size();
-    for (int i = 1; i < hsize; i++)
+    for (int i = 1; i < Heap.size(); i++)
     {
         flog << Heap[i]->GetNumUser() << "/" << Heap[i]->GetAgeGroup() << endl; //It is released in the order of the number of users and age group.
     }

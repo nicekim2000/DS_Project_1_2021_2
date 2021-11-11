@@ -50,7 +50,7 @@ void Manager::run(const char* command)
             if (ADD(Name, Age, Id)) //Error check.
             {
             }
-            else //오류 발생시
+            else //In the event of an error,
             {
                PrintErrorCode(200); //Error print.
             }
@@ -94,7 +94,7 @@ void Manager::run(const char* command)
         else if (strcmp(tmp, "PRINT") == 0) //If I get a PRINT order,
         {
             char* Next = strtok(NULL, " ");//We receive the next factor value.
-            if (Next)//다음 인자 값이 있으면
+            if (Next)//If there's a value for the next factor,
             {
                 char* ord=Next;//In case of B, a string to receive a factor.
                 if (strcmp(Next , "B")==0)
@@ -117,7 +117,7 @@ void Manager::run(const char* command)
         else if (strcmp(tmp, "DELETE") == 0) //When I get orders from DELETE,
         {
             char* id = strtok(NULL," "); //The next factor is the id value.
-            if (id)//id에 값이 있을 시
+            if (id)//If there's a value for id,
             {
                 if (DELETE(id)) //Error check.
                 {
@@ -147,8 +147,8 @@ void Manager::run(const char* command)
             char* Check = strtok(NULL, " ");// See if there are any following characters.
             if (Check != nullptr) PrintErrorCode(800);// If there is a next character, output an error.
             EXIT();
-            PrintSuccess("EXIT"); //성공 출력
-            break; //반복문 탈출
+            PrintSuccess("EXIT"); //Success!
+            break; //iterator escape.
         }
 
         else
@@ -215,7 +215,7 @@ bool Manager::ADD(char* name,char* age,char* Id)
     {
         return false; //Returns the error.
     }
-    else //값이 다 있다면
+    else 
     {
         flog << "===========ADD===========" << endl;
         AccountQueueNode* newnode = new AccountQueueNode; //New queue node declaration
@@ -310,7 +310,7 @@ bool Manager::PRINT(char* Next1, char* ord1)
         }
         else return false;//If not L and H, output the error.
     }
-    else//B인경우
+    else//If it's B,
     {
         if (ds_bst->GetRoot() == nullptr) return false;//If there's no data on the bst,
         if (ord == "PRE") //In case of PRE ORDER,
@@ -384,6 +384,10 @@ bool Manager::HLOAD()
 
 bool Manager::EXIT() //Returns dynamically allocated memories.
 {
+    delete ds_bst; 
+    delete ds_heap;
+    delete ds_list;
+    delete ds_queue;
     return true;
 }
 
